@@ -1,0 +1,23 @@
+{
+  "name": "lois2",
+  "version": "1.0.0",
+  "main": "lab2.js",
+  "scripts": {
+    "deploy": "gh-pages -d lab2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://marybag.github.io/lois2",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaryBag/lois2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MaryBag/lois2/issues"
+  },
+  "description": ""
+}
