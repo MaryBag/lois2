@@ -10,16 +10,17 @@ function checkBracket(formula) {
 function checkBinaryOperationsBracket(formula) {
     let formulaCopy = formula;
 
-    while (formulaCopy.match(/([|&~]|->)/g) || !formulaCopy.match(/^[=()]+$/g)) {
+    while (formulaCopy.match(/([|&~]|->)/g) || !formulaCopy.match(/^[A()]+$/g)) {
         let prevCopy = formulaCopy;
-        formulaCopy = formulaCopy.replace(/\(![A-Z01]\)/g, '=');
-        formulaCopy = formulaCopy.replace(/\([A-Z01]([|&~]|->)[A-Z01]\)/g, '=');
+
+        formulaCopy = formulaCopy.replace(/\(![A-Z01]\)/g, 'A');
+        formulaCopy = formulaCopy.replace(/\([A-Z01]([|&~]|->)[A-Z01]\)/g, 'A');
 
         if (formulaCopy === prevCopy) {
             return false;
         }
     }
-    return formulaCopy === '=';
+    return formulaCopy === 'A';
 }
 
 function checkSyntax(formula) {
@@ -113,6 +114,7 @@ function buttonCheckFunction() {
     var inputFunction = document.getElementById("function").value;
     if (!checkFormula(inputFunction)) {
         document.getElementById("result").innerHTML = "Данное выражение не является функцией логики";
+        document.getElementById("table").innerHTML = "";
     } else {
         document.getElementById("result").innerHTML = createTable(inputFunction);
     }
